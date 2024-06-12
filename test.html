@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disco Light</title>
+<script>
+    var discoInterval;
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function toggleDisco() {
+        if (!discoInterval) {
+            discoInterval = setInterval(function() {
+                var randomColor = getRandomColor();
+                document.body.style.backgroundColor = randomColor;
+            }, 0); // Change color every 200 milliseconds
+        } else {
+            clearInterval(discoInterval);
+            discoInterval = null;
+        }
+    }
+</script>
+</head>
+<body>
+
+<h2>Disco Light</h2>
+
+<button onclick="toggleDisco()">Toggle Disco</button>
+
+</body>
+</html>
